@@ -1,7 +1,6 @@
 package com.openbank.marvel.framework.di
 
 import com.openbank.marvel.data.character.CharacterRemoteDataSource
-import com.openbank.marvel.data.character_detail.CharacterDetailRemoteDataSource
 import com.openbank.marvel.framework.marvel.MarvelAPI
 import com.openbank.marvel.framework.marvel.MarvelFramework
 import com.openbank.marvel.framework.marvel.MarvelInterceptor
@@ -14,11 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 val frameworkModule = module {
-    factory<CharacterRemoteDataSource> { get<MarvelFramework>() }
-    factory<CharacterDetailRemoteDataSource> { get<MarvelFramework>() }
-
-    single { MarvelFramework(service = get()) }
-    single {
+    factory<CharacterRemoteDataSource> { MarvelFramework(service = get()) }
+    factory {
         Retrofit.Builder()
             .baseUrl(MarvelAPI.BASE_URL)
             .client(

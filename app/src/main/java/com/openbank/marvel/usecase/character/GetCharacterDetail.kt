@@ -5,9 +5,9 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 
-class GetCharacters(
+class GetCharacterDetail(
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default,
     private val repository: CharacterRepository,
 ) {
-    operator fun invoke() = repository.getCharacters().flowOn(dispatcher)
+    operator fun invoke(id: Int) = repository.getCharacterDetail(id = id).flowOn(dispatcher)
 }

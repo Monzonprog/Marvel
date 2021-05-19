@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterRemoteDataSource {
     fun getCharacters(): Flow<Either<MarvelError, List<MarvelCharacter>>>
+    fun getCharacterDetail(id: Int): Flow<Either<MarvelError, MarvelCharacter>>
 }

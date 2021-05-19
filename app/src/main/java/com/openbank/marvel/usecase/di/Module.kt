@@ -1,7 +1,7 @@
 package com.openbank.marvel.usecase.di
 
 import com.openbank.marvel.usecase.character.GetCharacters
-import com.openbank.marvel.usecase.character_detail.GetCharacterDetail
+import com.openbank.marvel.usecase.character.GetCharacterDetail
 import org.koin.dsl.module
 
 
